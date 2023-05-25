@@ -1,4 +1,6 @@
-﻿namespace Aulas_Blazor.Classes
+﻿using System.Globalization;
+
+namespace Aulas_Blazor.Classes
 {
     public class Calculando
     {

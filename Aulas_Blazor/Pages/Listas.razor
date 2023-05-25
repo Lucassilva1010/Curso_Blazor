@@ -1,0 +1,105 @@
+﻿@page "/listas"
+
+<h3>Listando Produtos</h3>
+
+<h2>Imprimindo produtos - Foreach</h2>
+<hr />
+@foreach (var item in P)
+{
+    <tr>
+        <td>
+
+            <h3>Produto: @item.Nome</h3>
+            <h3>Tipo: @item.Tipo</h3>
+            <h3>Data de Cadastro: @item.DataCadastro.ToString("dd/MM/yy")</h3>
+        </td>
+    </tr>
+    <hr />
+}
+<hr/>
+<h1>Imprimindo produtos - For</h1>
+
+@for (int i = 1; i < ListNova.Count; i++)
+{
+    <tr>
+        <td>
+            <h1>@i - Produto</h1>
+            <ul>
+
+            <li><h3>Nome: @ListNova[i].Nome</h3></li>
+                <li><h3>Tipo: @ListNova[i].Tipo</h3></li>
+                <li><h3>Data de Cadastro: @ListNova[i].DataCadastro.ToString("dd/MM/yy")</h3></li>
+            </ul>
+            
+        </td>
+    </tr>
+    <hr />
+}
+
+<hr />
+@code {
+
+    public List<Produto> P { get { return GetProdutos(); } }
+    private List<Produto> ListNova { get { return NovaListagem(); } }
+
+
+    private List<Produto> GetProdutos()
+    {
+        return new List<Produto>()
+            { 
+                new Produto(){
+                    Nome = "Computador",
+                    Tipo = "Eletroportatil",
+                    DataCadastro = new DateTime(2023, 05, 25)
+                },
+                new Produto(){
+                    Nome = "Telefons",
+                    Tipo = "Portatil",
+                    DataCadastro = new DateTime(2023, 10, 06)
+                },
+                new Produto(){
+                    Nome = "TV",
+                    Tipo = "Eletrodomestico",
+                    DataCadastro = new DateTime(2023, 08, 02)
+                },
+                 new Produto(){
+                    Nome = "Carro",
+                    Tipo = "Automoveis",
+                    DataCadastro = new DateTime(2023, 08, 02)
+                },
+                 new Produto(){
+                    Nome = "Moto",
+                    Tipo = "Automoveis",
+                    DataCadastro = new DateTime(2023, 10, 10)
+                }
+
+            };
+    }
+
+    private List<Produto> NovaListagem()
+    {
+        return new List<Produto>()
+        {
+            new Produto
+            {
+                Nome = "Teclado",
+                Tipo = "Periferico",
+                DataCadastro = new DateTime(2023,05,18)
+            },
+            new Produto
+            {
+                Nome = "Caixas de SOM",
+                Tipo = "Periferico",
+                DataCadastro = new DateTime(2023,01,01)
+            },
+            new Produto
+            {
+                Nome = "Memorias RAM",
+                Tipo = "Periferico",
+                DataCadastro = new DateTime(2023,02,10)
+            }
+        };
+    }
+
+
+}
