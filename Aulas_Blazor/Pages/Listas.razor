@@ -1,11 +1,15 @@
 ﻿@page "/listas"
 
-<h3>Listando Produtos</h3>
+<h1><b>Listando Produtos</b></h1>
 
 <h2>Imprimindo produtos - Foreach</h2>
 <hr />
 @foreach (var item in P)
 {
+    if (item.Nome.Contains("Computador"))
+    {
+        <h4><b>Promoção de 20% para todos os computadores</b></h4>
+    }
     <tr>
         <td>
 
@@ -19,8 +23,13 @@
 <hr/>
 <h1>Imprimindo produtos - For</h1>
 
-@for (int i = 1; i < ListNova.Count; i++)
+@for (int i = 0; i < ListNova.Count; i++)
 {
+
+    if (i == ListNova.Count-1)
+    {
+        <h4><b>Esse é o meu Ultimo Produto cadastrado</b></h4>
+    }
     <tr>
         <td>
             <h1>@i - Produto</h1>
@@ -80,19 +89,19 @@
     {
         return new List<Produto>()
         {
-            new Produto
+            new Produto()
             {
                 Nome = "Teclado",
                 Tipo = "Periferico",
                 DataCadastro = new DateTime(2023,05,18)
             },
-            new Produto
+            new Produto()
             {
                 Nome = "Caixas de SOM",
                 Tipo = "Periferico",
                 DataCadastro = new DateTime(2023,01,01)
             },
-            new Produto
+            new Produto()
             {
                 Nome = "Memorias RAM",
                 Tipo = "Periferico",
