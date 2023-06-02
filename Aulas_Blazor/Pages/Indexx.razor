@@ -1,0 +1,99 @@
+﻿
+@using Aulas_Blazor.Classes
+@using System.Globalization;
+
+<PageTitle>Index</PageTitle>
+
+<h1>Boa noite</h1>
+<h4>@DateTime.Now</h4>
+<h1>Seja bem vindo, @nome</h1>
+<h1>Hoje é @data</h1>
+
+<hr/> 
+<h1>Imprimindo o metodo</h1>
+<h3>@Mensagem(nome)</h3>
+
+<hr/>
+<h2>Imprimindo somas</h2>
+
+<h2>A soma entre 2 numeros é: @Soma(n1,n2) </h2>
+<h2>Usando apenas as diretivas Razor e somando direto o valor de 5 + 5: @(5+5) </h2>
+
+<hr />
+
+<h1>Usando Classes locais</h1>
+
+<h4>A soma de  2 + 10 = @Calculo.Soma(2,10) </h4>
+<h4>A Multiplicação de  2 * 10 = @Calculo.Multiplica(2,10) </h4>
+<h4>O Subitrair de  2 - 10 = @Calculo.Subritai(2,10) </h4>
+<h4>A Divisão de  2 / 10 = @Calculo.Divide(2,10) </h4>
+
+
+<hr />
+
+<h1>Usando Classes Globais</h1>
+<h4>A soma de  10 + 15 = @Calculando.Soma(10,15).ToString("f2",CultureInfo.InvariantCulture) </h4>
+<h4>A Multiplicação de  10 * 15 = @Calculando.Multiplica(10,15).ToString("f2",CultureInfo.InvariantCulture) </h4>
+<h4>O Subitrair de 10 - 15 = @Calculando.Subritai(10,15).ToString("f2",CultureInfo.InvariantCulture) </h4>
+<h4>A Divisão de  15 / 10 = @Calculando.Divide(15,10).ToString("f2",CultureInfo.InvariantCulture) </h4>
+
+
+
+
+Welcome to your new app.
+
+<SurveyPrompt Title="How is Blazor working for you?" />
+
+@code{
+
+    string nome = "Lucas";
+    double n1 = 10;
+    double n2 = 40;
+
+    string data = DateTime.Now.ToString();
+
+    private string Mensagem(string nome)
+    {
+        var mensagem = $"Seja bem vindo {nome}";
+        return mensagem;
+    }
+
+
+    private double Soma(double n1, double n2)
+    {
+        double resultado = n1 + n2;
+        return resultado;
+    }
+
+    public class Calculo
+    {
+        public static double Soma(int n1 , int n2)
+        {
+
+            double resultado = n1 + n2;
+            return  resultado; ;
+        } 
+        
+        public static double Multiplica(int n1, int n2)
+        {
+          
+            double resultado = n1 * n2;
+            return resultado;
+        }
+        public static double Subritai(int n1, int n2)
+        {
+          
+            double resultado = n1 - n2;
+            return resultado;
+        }
+        
+        public static double Divide(int n1, int n2)
+        {
+          
+            double resultado = n1 / n2;
+            return resultado;
+        }
+
+    }
+
+}
