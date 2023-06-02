@@ -1,0 +1,19 @@
+﻿@page "/eventos"
+
+<h3>Eventos</h3>
+<hr/>
+<h1>As saidas vão está no CONSOLE</h1>
+<hr/>
+
+<button @onclick="@Mensagem">Clica aqui</button>
+<br/>
+<br/>
+<h3>Eventos  com LAMBDA</h3>
+<button @onclick="@(()=> Console.WriteLine("Usando a Lanbda"))">LAMBDA</button>
+<hr />
+@code {
+    private void Mensagem()
+    {
+        Console.WriteLine("Você é feraa!!");
+    }
+}

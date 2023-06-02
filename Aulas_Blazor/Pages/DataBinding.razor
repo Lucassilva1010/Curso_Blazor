@@ -1,0 +1,19 @@
+﻿@page "/dataBinding"
+
+<h3>DataBinding</h3>
+<h2> Usando o UNIDIRECIONAL</h2>
+<h3>@Nome</h3>
+<hr/>
+<br/>
+<input @bind="Nome"/>
+<hr />
+<br />
+<br />
+
+<h3>DataBinding - Atualizando Caractere a Caractere</h3>
+<hr/>
+<input @bind-value="Nome"  @bind-value:event="oninput"/>
+
+@code {
+    public string Nome { get; set; } = "Eu vou dominar o Blazor";
+}
